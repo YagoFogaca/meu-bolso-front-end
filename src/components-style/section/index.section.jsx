@@ -35,6 +35,15 @@ export const SectionMovementInformation = styled.section`
   min-width: 290px;
   background-color: #0f0;
   padding: 15px;
+
+  .btn-primary {
+    background-color: #aa0cff;
+    border-color: #aa0cff;
+  }
+  .btn-primary:active {
+    border-color: #aa0cff;
+    background-color: #aa0cff;
+  }
 `;
 
 // card de infos
@@ -80,3 +89,5 @@ export const CardDivInfos = styled.div`
     font-weight: 800;
   }
 `;
+
+export const CardFilter = styled.section``;

@@ -1,6 +1,7 @@
 import { NavbarComponents } from "../../components/navbar/index.navbar.jsx";
 import * as C from "../../components-style/section/index.section.jsx";
 import { MainStyled } from "../../components-style/main/index.main.jsx";
+import { Dropdown } from "react-bootstrap";
 
 export const Home = () => {
   return (
@@ -29,8 +30,20 @@ export const Home = () => {
               </C.CardDivInfos>
             </C.CardsInfosAmount>
           </C.SectionMovementInformationAmount>
+
           <C.SectionMovementInformation>
-            Info de movimentações
+            <C.CardFilter>
+              <Dropdown>
+                <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                  Filtro
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Receitas</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Gastos</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </C.CardFilter>
           </C.SectionMovementInformation>
         </C.SectionStyled>
       </MainStyled>
