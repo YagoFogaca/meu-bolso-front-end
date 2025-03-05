@@ -33,17 +33,7 @@ export const SectionMovementInformationAmount = styled.section`
 export const SectionMovementInformation = styled.section`
   width: 45%;
   min-width: 290px;
-  background-color: #0f0;
   padding: 15px;
-
-  .btn-primary {
-    background-color: #aa0cff;
-    border-color: #aa0cff;
-  }
-  .btn-primary:active {
-    border-color: #aa0cff;
-    background-color: #aa0cff;
-  }
 `;
 
 // card de infos
@@ -90,4 +80,8 @@ export const CardDivInfos = styled.div`
   }
 `;
 
-export const CardFilter = styled.section``;
+export const CardFilter = styled.section`
+  .bi-funnel-fill {
+    padding-right: 5px;
+  }
+`;
