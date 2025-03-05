@@ -10,8 +10,8 @@ export const Home = () => {
       <NavbarComponents />
       <MainStyled>
         <SectionStyled>
-          <SectionMovementAmount />
           <SectionMovementInformation />
+          <SectionMovementAmount />
         </SectionStyled>
       </MainStyled>
     </>
