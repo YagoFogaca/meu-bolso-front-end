@@ -8,6 +8,10 @@ export const SectionMovementInformation = styled.section`
 `;
 
 export const CardFilter = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
   .bi-funnel-fill {
     padding-right: 5px;
   }
