@@ -1,13 +1,17 @@
 import * as C from "./index.section-movement-amount.styled.js";
+import {
+  IconMovimentRevenue,
+  IconMovimentExpenses,
+} from "../../components-style/div-icons/index.div-icons.js";
 
 export const SectionMovementAmount = () => {
   return (
     <>
       <C.SectionMovementAmount>
         <C.CardsInfosAmount>
-          <C.DivIcons>
+          <IconMovimentRevenue>
             <i class="bi bi-arrow-up-short"></i>
-          </C.DivIcons>
+          </IconMovimentRevenue>
           <C.CardDivInfos>
             <h5>Receita no mês</h5>
             <h6>R$8.000,00</h6>
@@ -15,9 +19,9 @@ export const SectionMovementAmount = () => {
         </C.CardsInfosAmount>
 
         <C.CardsInfosAmount>
-          <C.DivIconsVariant>
+          <IconMovimentExpenses>
             <i class="bi bi-arrow-down-short"></i>
-          </C.DivIconsVariant>
+          </IconMovimentExpenses>
           <C.CardDivInfos>
             <h5>Gastos no mês</h5>
             <h6>R$2.500,00</h6>
