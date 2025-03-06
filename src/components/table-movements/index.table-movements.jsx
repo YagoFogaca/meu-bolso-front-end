@@ -1,4 +1,5 @@
 import { Table } from "react-bootstrap";
+import * as C from "./index.table-movements.styled.js";
 
 import {
   IconMovimentRevenueVariant,
@@ -8,46 +9,58 @@ import {
 export const TableMovements = () => {
   return (
     <>
-      <Table striped>
+      <Table striped responsive>
         <thead>
           <tr>
-            <th>Tipo</th>
-            <th>Dia</th>
-            <th>Hora</th>
-            <th>Valor</th>
+            <C.ThStyled>Tipo</C.ThStyled>
+            <C.ThStyled>Dia</C.ThStyled>
+            <C.ThStyled>Hora</C.ThStyled>
+            <C.ThStyled>Valor</C.ThStyled>
+            <C.ThStyled>Ações</C.ThStyled>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>
+            <C.TdStyled>
               <IconMovimentExpensesVariant>
                 <i class="bi bi-arrow-down-short"></i>
               </IconMovimentExpensesVariant>
-            </td>
-            <td>05/03/2025</td>
-            <td>12h0</td>
-            <td>R$12,00</td>
+            </C.TdStyled>
+            <C.TdStyled>05/03/2025</C.TdStyled>
+            <C.TdStyled>12h0</C.TdStyled>
+            <C.TdStyled>R$12,00</C.TdStyled>
+            <C.TdStyled>
+              <i class="bi bi-pencil-fill"></i>
+              <i class="bi bi-trash3-fill"></i>
+            </C.TdStyled>
           </tr>
           <tr>
-            <td>
-              {" "}
+            <C.TdStyled>
               <IconMovimentRevenueVariant>
                 <i class="bi bi-arrow-up-short"></i>
               </IconMovimentRevenueVariant>
-            </td>
-            <td>05/03/2025</td>
-            <td>13h45</td>
-            <td>R$120,00</td>
+            </C.TdStyled>
+            <C.TdStyled>05/03/2025</C.TdStyled>
+            <C.TdStyled>13h45</C.TdStyled>
+            <C.TdStyled>R$120,00</C.TdStyled>
+            <C.TdStyled>
+              <i class="bi bi-pencil-fill"></i>
+              <i class="bi bi-trash3-fill"></i>
+            </C.TdStyled>
           </tr>
           <tr>
-            <td>
+            <C.TdStyled>
               <IconMovimentExpensesVariant>
                 <i class="bi bi-arrow-down-short"></i>
               </IconMovimentExpensesVariant>
-            </td>
-            <td>05/03/2025</td>
-            <td>9h0</td>
-            <td>R$18,70</td>
+            </C.TdStyled>
+            <C.TdStyled>05/03/2025</C.TdStyled>
+            <C.TdStyled>9h0</C.TdStyled>
+            <C.TdStyled>R$18,70</C.TdStyled>
+            <C.TdStyled>
+              <i class="bi bi-pencil-fill"></i>
+              <i class="bi bi-trash3-fill"></i>
+            </C.TdStyled>
           </tr>
         </tbody>
       </Table>
