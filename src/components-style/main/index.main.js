@@ -5,3 +5,8 @@ export const MainStyled = styled.main`
   display: flex;
   justify-content: center;
 `;
+
+export const MainStyledVariant = styled(MainStyled)`
+  min-height: 100vh;
+  align-items: center;
+`;
