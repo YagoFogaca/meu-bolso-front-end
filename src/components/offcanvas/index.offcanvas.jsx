@@ -11,7 +11,7 @@ export const OffcanvasComponents = () => {
   return (
     <>
       <BtnStyled variant="primary" onClick={handleShow}>
-        <i class="bi bi-funnel-fill"></i>Filtros
+        <i className="bi bi-funnel-fill"></i>Filtros
       </BtnStyled>
 
       <Offcanvas show={show} onHide={handleClose}>

@@ -11,7 +11,7 @@ export const ModalCreate = () => {
   return (
     <>
       <BtnStyled variant="primary" onClick={handleShow}>
-        <i class="bi bi-plus"></i> Adicionar
+        <i className="bi bi-plus"></i> Adicionar
       </BtnStyled>
 
       <Modal show={show} onHide={handleClose} centered>

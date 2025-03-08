@@ -10,7 +10,7 @@ export const SectionMovementAmount = () => {
       <C.SectionMovementAmount>
         <C.CardsInfosAmount>
           <IconMovimentRevenue>
-            <i class="bi bi-arrow-up-short"></i>
+            <i className="bi bi-arrow-up-short"></i>
           </IconMovimentRevenue>
           <C.CardDivInfos>
             <h5>Receita no mês</h5>
@@ -20,7 +20,7 @@ export const SectionMovementAmount = () => {
 
         <C.CardsInfosAmount>
           <IconMovimentExpenses>
-            <i class="bi bi-arrow-down-short"></i>
+            <i className="bi bi-arrow-down-short"></i>
           </IconMovimentExpenses>
           <C.CardDivInfos>
             <h5>Gastos no mês</h5>
