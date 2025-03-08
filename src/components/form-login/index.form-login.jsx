@@ -20,19 +20,15 @@ export const FormLogin = () => {
     event.preventDefault();
     if (event.currentTarget.checkValidity() !== false) {
       setLoading(true);
-
       setValidatedLogin(false);
-
       try {
         const userLogin = await Api.login({
           email: event.currentTarget.email.value,
           password: event.currentTarget.password.value,
         });
-
         setLoading(false);
-
         Cookies.set("token", userLogin.token);
-
+        Cookies.set("user_id", userLogin.data.id);
         navigate("/app");
       } catch (error) {
         setValidatedLogin(true);
@@ -50,7 +46,6 @@ export const FormLogin = () => {
         ) : (
           <></>
         )}
-
         <Form.Group className="mb-3" controlId="email" hasvalidation="true">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -75,13 +70,11 @@ export const FormLogin = () => {
             Preencha esse dado.
           </Form.Control.Feedback>
         </Form.Group>
-
         {loading ? (
           <SpinnerComponents text={"Carregando"} />
         ) : (
           <BtnStyledLogin type="submit">Login</BtnStyledLogin>
         )}
-
         <BtnStyledCreate>Criar conta</BtnStyledCreate>
       </Form>
     </>
