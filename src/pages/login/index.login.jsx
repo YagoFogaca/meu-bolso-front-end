@@ -8,6 +8,7 @@ import {
   SectionCard,
 } from "../../components-style/card-login/index.card-login.js";
 import { Form } from "react-bootstrap";
+import { FormLogin } from "../../components/form-login/index.form-login.jsx";
 
 export const Login = () => {
   return (
@@ -18,18 +19,7 @@ export const Login = () => {
             <h5>Digite seu Email e senha para iniciar sessão</h5>
           </SectionCard>
           <SectionCard>
-            <Form>
-              <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Senha</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <BtnStyledLogin>Login</BtnStyledLogin>
-              <BtnStyledCreate>Criar conta</BtnStyledCreate>
-            </Form>
+            <FormLogin />
           </SectionCard>
         </CardLogin>
       </MainStyledVariant>
