@@ -13,6 +13,7 @@ export const TableMovements = () => {
         <thead>
           <tr>
             <C.ThStyled>Tipo</C.ThStyled>
+            <C.ThStyled>Descrição</C.ThStyled>
             <C.ThStyled>Dia</C.ThStyled>
             <C.ThStyled>Hora</C.ThStyled>
             <C.ThStyled>Valor</C.ThStyled>
@@ -26,6 +27,7 @@ export const TableMovements = () => {
                 <i className="bi bi-arrow-down-short"></i>
               </IconMovimentExpensesVariant>
             </C.TdStyled>
+            <C.TdStyled>Lanche na rua</C.TdStyled>
             <C.TdStyled>05/03/2025</C.TdStyled>
             <C.TdStyled>12h0</C.TdStyled>
             <C.TdStyled>R$12,00</C.TdStyled>
@@ -40,6 +42,7 @@ export const TableMovements = () => {
                 <i className="bi bi-arrow-up-short"></i>
               </IconMovimentRevenueVariant>
             </C.TdStyled>
+            <C.TdStyled>Manete PS4</C.TdStyled>
             <C.TdStyled>05/03/2025</C.TdStyled>
             <C.TdStyled>13h45</C.TdStyled>
             <C.TdStyled>R$120,00</C.TdStyled>
@@ -54,6 +57,7 @@ export const TableMovements = () => {
                 <i className="bi bi-arrow-down-short"></i>
               </IconMovimentExpensesVariant>
             </C.TdStyled>
+            <C.TdStyled>Maço de palha</C.TdStyled>
             <C.TdStyled>05/03/2025</C.TdStyled>
             <C.TdStyled>9h0</C.TdStyled>
             <C.TdStyled>R$18,70</C.TdStyled>
