@@ -1,4 +1,10 @@
+import { Table } from "react-bootstrap";
 import styled from "styled-components";
+
+export const TableStyled = styled(Table)`
+  vertical-align: middle !important;
+  min-width: 592px;
+`;
 
 export const ThStyled = styled.th`
   @media (max-width: 768px) {

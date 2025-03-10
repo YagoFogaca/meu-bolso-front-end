@@ -17,8 +17,11 @@ export const Home = () => {
     console.log("COMEÇOU");
 
     try {
-      const movements = await Api.findAllMovimentUser(Cookies.get("user_id"));
-      setMovementsAmount(MovementsAmount(movements));
+      const movementsFind = await Api.findAllMovimentUser(
+        Cookies.get("user_id")
+      );
+      setMovementsAmount(MovementsAmount(movementsFind));
+      setMovements(movementsFind);
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +36,7 @@ export const Home = () => {
       <NavbarComponents />
       <MainStyled>
         <SectionStyled>
-          <SectionMovementInformation />
+          <SectionMovementInformation movements={movements} />
           <SectionMovementAmount amount={movementsAmount} />
         </SectionStyled>
       </MainStyled>

@@ -1,15 +1,10 @@
-import { Table } from "react-bootstrap";
 import * as C from "./index.table-movements.styled.js";
+import * as I from "../../components-style/div-icons/index.div-icons";
 
-import {
-  IconMovimentRevenueVariant,
-  IconMovimentExpensesVariant,
-} from "../../components-style/div-icons/index.div-icons";
-
-export const TableMovements = () => {
+export const TableMovements = ({ movements }) => {
   return (
     <>
-      <Table striped responsive>
+      <C.TableStyled striped responsive>
         <thead>
           <tr>
             <C.ThStyled>Tipo</C.ThStyled>
@@ -21,53 +16,41 @@ export const TableMovements = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <C.TdStyled>
-              <IconMovimentExpensesVariant>
-                <i className="bi bi-arrow-down-short"></i>
-              </IconMovimentExpensesVariant>
-            </C.TdStyled>
-            <C.TdStyled>Lanche na rua</C.TdStyled>
-            <C.TdStyled>05/03/2025</C.TdStyled>
-            <C.TdStyled>12h0</C.TdStyled>
-            <C.TdStyled>R$12,00</C.TdStyled>
-            <C.TdStyled>
-              <i className="bi bi-pencil-fill"></i>
-              <i className="bi bi-trash3-fill"></i>
-            </C.TdStyled>
-          </tr>
-          <tr>
-            <C.TdStyled>
-              <IconMovimentRevenueVariant>
-                <i className="bi bi-arrow-up-short"></i>
-              </IconMovimentRevenueVariant>
-            </C.TdStyled>
-            <C.TdStyled>Manete PS4</C.TdStyled>
-            <C.TdStyled>05/03/2025</C.TdStyled>
-            <C.TdStyled>13h45</C.TdStyled>
-            <C.TdStyled>R$120,00</C.TdStyled>
-            <C.TdStyled>
-              <i className="bi bi-pencil-fill"></i>
-              <i className="bi bi-trash3-fill"></i>
-            </C.TdStyled>
-          </tr>
-          <tr>
-            <C.TdStyled>
-              <IconMovimentExpensesVariant>
-                <i className="bi bi-arrow-down-short"></i>
-              </IconMovimentExpensesVariant>
-            </C.TdStyled>
-            <C.TdStyled>Maço de palha</C.TdStyled>
-            <C.TdStyled>05/03/2025</C.TdStyled>
-            <C.TdStyled>9h0</C.TdStyled>
-            <C.TdStyled>R$18,70</C.TdStyled>
-            <C.TdStyled>
-              <i className="bi bi-pencil-fill"></i>
-              <i className="bi bi-trash3-fill"></i>
-            </C.TdStyled>
-          </tr>
+          {movements.map((movement, index) => {
+            return (
+              <tr key={`${index}}`}>
+                <C.TdStyled>
+                  {movement.type === "ENTRY" ? (
+                    <>
+                      <I.IconMovimentRevenueVariant>
+                        <i className="bi bi-arrow-up-short"></i>
+                      </I.IconMovimentRevenueVariant>
+                    </>
+                  ) : (
+                    <I.IconMovimentExpensesVariant>
+                      <i className="bi bi-arrow-down-short"></i>
+                    </I.IconMovimentExpensesVariant>
+                  )}
+                </C.TdStyled>
+                <C.TdStyled>{movement.description}</C.TdStyled>
+                <C.TdStyled>{movement.date}</C.TdStyled>
+                <C.TdStyled>{movement.hour}</C.TdStyled>
+                <C.TdStyled>
+                  R$
+                  {movement.amount.toLocaleString("PT", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </C.TdStyled>
+                <C.TdStyled>
+                  <i className="bi bi-pencil-fill"></i>
+                  <i className="bi bi-trash3-fill"></i>
+                </C.TdStyled>
+              </tr>
+            );
+          })}
         </tbody>
-      </Table>
+      </C.TableStyled>
     </>
   );
 };
