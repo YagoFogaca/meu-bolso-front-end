@@ -4,7 +4,7 @@ import {
   IconMovimentExpenses,
 } from "../../components-style/div-icons/index.div-icons.js";
 
-export const SectionMovementAmount = () => {
+export const SectionMovementAmount = ({ amount }) => {
   return (
     <>
       <C.SectionMovementAmount>
@@ -14,7 +14,7 @@ export const SectionMovementAmount = () => {
           </IconMovimentRevenue>
           <C.CardDivInfos>
             <h5>Receita no mês</h5>
-            <h6>R$8.000,00</h6>
+            <h6>R$ {amount.entry}</h6>
           </C.CardDivInfos>
         </C.CardsInfosAmount>
 
@@ -24,7 +24,7 @@ export const SectionMovementAmount = () => {
           </IconMovimentExpenses>
           <C.CardDivInfos>
             <h5>Gastos no mês</h5>
-            <h6>R$2.500,00</h6>
+            <h6>R$ {amount.exit}</h6>
           </C.CardDivInfos>
         </C.CardsInfosAmount>
       </C.SectionMovementAmount>

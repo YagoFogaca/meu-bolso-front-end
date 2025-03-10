@@ -11,4 +11,8 @@ export class Api {
   static async createMoviment(moviment) {
     return (await axios.post("movements/movement", moviment)).data;
   }
+
+  static async findAllMovimentUser(user_id) {
+    return (await axios.get("movements/movement/" + user_id)).data;
+  }
 }
