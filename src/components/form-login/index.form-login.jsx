@@ -28,7 +28,7 @@ export const FormLogin = () => {
         });
         setLoading(false);
         Cookies.set("token", userLogin.token);
-        Cookies.set("user_id", userLogin.data.id);
+        Cookies.set("user_id", userLogin.data.user_id);
         navigate("/app");
       } catch (error) {
         setValidatedLogin(true);
