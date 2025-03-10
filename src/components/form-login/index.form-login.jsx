@@ -7,7 +7,7 @@ import {
   BtnStyledLogin,
   BtnStyledCreate,
 } from "../../components-style/btn-primary/index.btn-primary.styled";
-import { TextFeedback } from "./index.form-login.styled";
+import { TextFeedback } from "../../components-style/text-feedback/index.text-feedback";
 import { SpinnerComponents } from "../spinner/index.spinner";
 
 export const FormLogin = () => {
