@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import { useState } from "react";
 import { Api } from "../../api/index.api.user.js";
+import { FormateDate } from "../../utils/formate-date/index.formate-date.js";
 import { Form, Row, Col, Stack } from "react-bootstrap";
 import { TextFeedback } from "../../components-style/text-feedback/index.text-feedback.js";
 import { SpinnerComponents } from "../spinner/index.spinner.jsx";
@@ -20,7 +21,7 @@ export const FormCreateMovement = ({ handleClose }) => {
     try {
       const createdMoviment = await Api.createMoviment({
         user_id: Cookies.get("user_id"),
-        date: event.currentTarget.date.value,
+        date: FormateDate.execute(event.currentTarget.date.value),
         hour: event.currentTarget.hour.value,
         amount: parseFloat(event.currentTarget.amount.value),
         description: event.currentTarget.description.value,
@@ -57,12 +58,7 @@ export const FormCreateMovement = ({ handleClose }) => {
         <Row className="mb-3">
           <Form.Group as={Col} controlId="date">
             <Form.Label>Data</Form.Label>
-            <Form.Control
-              type="date"
-              placeholder="05/03/2025"
-              name="date"
-              required
-            />
+            <Form.Control type="date" name="date" required />
           </Form.Group>
 
           <Form.Group as={Col} controlId="hour">
