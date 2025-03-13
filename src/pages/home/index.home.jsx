@@ -6,7 +6,7 @@ import { MainStyled } from "../../components-style/main/index.main.js";
 import { SectionStyled } from "../../components-style/section/index.section.js";
 import { useEffect, useState } from "react";
 import { Api } from "../../api/index.api.user.js";
-import { MovementsAmount } from "../../utils/movements-mount/index.movements-mount.js";
+import { GenerateDate } from "../../utils/generate-date/index.generate-date.js";
 
 export const Home = () => {
   // precisa de um context
@@ -18,10 +18,11 @@ export const Home = () => {
 
     try {
       const movementsFind = await Api.findAllMovimentUser(
-        Cookies.get("user_id")
+        Cookies.get("user_id"),
+        GenerateDate.execute()
       );
-      setMovementsAmount(MovementsAmount(movementsFind));
-      setMovements(movementsFind);
+      setMovementsAmount(movementsFind.movementsAmount);
+      setMovements(movementsFind.movements);
     } catch (error) {
       console.log(error);
     }

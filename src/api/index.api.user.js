@@ -12,7 +12,7 @@ export class Api {
     return (await axios.post("movements/movement", moviment)).data;
   }
 
-  static async findAllMovimentUser(user_id) {
-    return (await axios.get("movements/movement/" + user_id)).data;
+  static async findAllMovimentUser(user_id, date) {
+    return (await axios.get(`movements/movement/${user_id}?date=${date}`)).data;
   }
 }
