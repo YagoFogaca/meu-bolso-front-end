@@ -8,11 +8,16 @@ export class Api {
     return (await axios.post("auth/login", user)).data;
   }
 
-  static async createMoviment(moviment) {
-    return (await axios.post("movements/movement", moviment)).data;
+  static async updateUser(user_id, user) {
+    console.log(user);
+    return await axios.patch(`users/user/${user_id}`, user);
   }
 
   static async findAllMovimentUser(user_id, date) {
     return (await axios.get(`movements/movement/${user_id}?date=${date}`)).data;
+  }
+
+  static async createMoviment(moviment) {
+    return (await axios.post("movements/movement", moviment)).data;
   }
 }

@@ -1,8 +1,14 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Offcanvas,
+} from "react-bootstrap";
+import {
+  NavDropdownLink,
+  NavLinkStyled,
+} from "../../components-style/NavLink/index.navlink.styled";
 
 export const NavbarComponents = () => {
   return (
@@ -38,18 +44,25 @@ export const NavbarComponents = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="#action1">Home</Nav.Link>
+                <NavLinkStyled className={"nav-link"} to={"/app"} end>
+                  Home
+                </NavLinkStyled>
                 <NavDropdown
-                  title="Conta"
+                  title="Configuração"
                   id={`offcanvasNavbarDropdown-md-${"md"}`}
                   align="end"
                 >
-                  {/* <NavDropdown.Item href="#action3">Conta</NavDropdown.Item> */}
-                  <NavDropdown.Item href="#action4">
-                    Configuração
-                  </NavDropdown.Item>
+                  <NavDropdownLink
+                    className={"dropdown-item"}
+                    to={"/user/personal_info"}
+                  >
+                    Dados Pessoais
+                  </NavDropdownLink>
+                  <NavDropdownLink className={"dropdown-item"}>
+                    Segurança
+                  </NavDropdownLink>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Sair</NavDropdown.Item>
+                  <NavDropdown.Item>Sair</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Offcanvas.Body>
