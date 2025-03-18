@@ -58,7 +58,10 @@ export const NavbarComponents = () => {
                   >
                     Dados Pessoais
                   </NavDropdownLink>
-                  <NavDropdownLink className={"dropdown-item"}>
+                  <NavDropdownLink
+                    className={"dropdown-item"}
+                    to={"/user/personal_info"}
+                  >
                     Segurança
                   </NavDropdownLink>
                   <NavDropdown.Divider />
