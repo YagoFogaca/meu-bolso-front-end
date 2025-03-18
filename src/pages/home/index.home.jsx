@@ -4,25 +4,27 @@ import { SectionMovementAmount } from "../../components/section-movement-amount/
 import { SectionMovementInformation } from "../../components/section-movement-information/index.section-movement-information.jsx";
 import { MainStyled } from "../../components-style/main/index.main.js";
 import { SectionStyled } from "../../components-style/section/index.section.js";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Api } from "../../api/index.api.user.js";
 import { GenerateDate } from "../../utils/generate-date/index.generate-date.js";
+import { MovementContext } from "../../context/movement/index.context.movement.jsx";
 
 export const Home = () => {
-  // precisa de um context
+  const { movements, movementsAmount, setMovements, setMovementsAmount } =
+    useContext(MovementContext);
+  const [loading, setLoading] = useState(true);
 
-  const [movements, setMovements] = useState([]);
-  const [movementsAmount, setMovementsAmount] = useState([]);
   const findMovements = async () => {
-    console.log("COMEÇOU");
-
     try {
       const movementsFind = await Api.findAllMovimentUser(
         Cookies.get("user_id"),
         GenerateDate.execute()
       );
-      setMovementsAmount(movementsFind.movementsAmount);
+
       setMovements(movementsFind.movements);
+      setMovementsAmount(movementsFind.movementsAmount);
+
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -35,12 +37,16 @@ export const Home = () => {
   return (
     <>
       <NavbarComponents />
-      <MainStyled>
-        <SectionStyled>
-          <SectionMovementInformation movements={movements} />
-          <SectionMovementAmount amount={movementsAmount} />
-        </SectionStyled>
-      </MainStyled>
+      {loading ? (
+        <h1>Calma ai cara</h1>
+      ) : (
+        <MainStyled>
+          <SectionStyled>
+            <SectionMovementInformation movements={movements} />
+            <SectionMovementAmount amount={movementsAmount} />
+          </SectionStyled>
+        </MainStyled>
+      )}
     </>
   );
 };
