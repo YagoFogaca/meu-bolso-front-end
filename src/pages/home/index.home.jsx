@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { Api } from "../../api/index.api.user.js";
 import { GenerateDate } from "../../utils/generate-date/index.generate-date.js";
 import { MovementContext } from "../../context/movement/index.context.movement.jsx";
+import { HandlingMovementContext } from "../../utils/handling-movement-context/index.handling-movement-context.js";
 
 export const Home = () => {
   const { movements, movementsAmount, setMovements, setMovementsAmount } =
@@ -23,7 +24,9 @@ export const Home = () => {
 
       localStorage.setItem("date", GenerateDate.execute());
 
-      setMovements(movementsFind.movements);
+      setMovements(
+        HandlingMovementContext.filterMovementContext(movementsFind.movements)
+      );
       setMovementsAmount(movementsFind.movementsAmount);
 
       setLoading(false);
