@@ -37,9 +37,13 @@ export const FormCreateMovement = ({ handleClose }) => {
         localStorage.getItem("date") ===
         FormateDate.formate(createdMovement.date).slice(1)
       ) {
-        setMovements(
-          HandlingMovementContext.addMovementContext(createdMovement, movements)
-        );
+        const handlingMovementContext =
+          HandlingMovementContext.addMovementContext(
+            createdMovement,
+            movements
+          );
+        setMovements(handlingMovementContext.movements);
+        setMovementsAmount(handlingMovementContext.amount);
       }
 
       handleClose();
