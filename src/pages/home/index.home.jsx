@@ -21,6 +21,8 @@ export const Home = () => {
         GenerateDate.execute()
       );
 
+      localStorage.setItem("date", GenerateDate.execute());
+
       setMovements(movementsFind.movements);
       setMovementsAmount(movementsFind.movementsAmount);
 

@@ -1,7 +1,9 @@
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MovementContext } from "../../context/movement/index.context.movement.jsx";
 import { Api } from "../../api/index.api.user.js";
 import { FormateDate } from "../../utils/formate-date/index.formate-date.js";
+import { HandlingMovementContext } from "../../utils/handling-movement-context/index.handling-movement-context.js";
 import { Form, Row, Col, Stack } from "react-bootstrap";
 import { TextFeedback } from "../../components-style/text-feedback/index.text-feedback.js";
 import { SpinnerComponents } from "../spinner/index.spinner.jsx";
@@ -11,6 +13,9 @@ export const FormCreateMovement = ({ handleClose }) => {
   const [loading, setLoading] = useState(false);
   const [validatedCreate, setValidatedCreate] = useState(false);
 
+  const { movements, movementsAmount, setMovements, setMovementsAmount } =
+    useContext(MovementContext);
+
   const createMoviment = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -19,7 +24,7 @@ export const FormCreateMovement = ({ handleClose }) => {
     }
 
     try {
-      const createdMoviment = await Api.createMoviment({
+      const createdMovement = await Api.createMoviment({
         user_id: Cookies.get("user_id"),
         date: FormateDate.execute(event.currentTarget.date.value),
         hour: event.currentTarget.hour.value,
@@ -28,7 +33,14 @@ export const FormCreateMovement = ({ handleClose }) => {
         type: event.currentTarget.type.value,
       });
 
-      // Implementar context
+      if (
+        localStorage.getItem("date") ===
+        FormateDate.formate(createdMovement.date).slice(1)
+      ) {
+        setMovements(
+          HandlingMovementContext.addMovementContext(createdMovement, movements)
+        );
+      }
 
       handleClose();
     } catch (error) {
