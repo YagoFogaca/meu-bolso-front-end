@@ -44,4 +44,12 @@ export class HandlingMovementContext {
       exit: movementAmount.exit.toLocaleString("PT", options),
     };
   }
+
+  static removeMovementContext(movements, index) {
+    const data = movements.filter((_, i) => i !== index);
+    return {
+      movements: data,
+      amount: this.addMovementContextAmount(data),
+    };
+  }
 }

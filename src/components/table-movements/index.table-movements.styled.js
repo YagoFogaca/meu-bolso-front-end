@@ -17,6 +17,11 @@ export const TdStyled = styled.td`
     font-size: 14px;
   }
 
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
   .bi-pencil-fill {
     margin-right: 5px;
   }

@@ -20,4 +20,8 @@ export class Api {
   static async createMoviment(moviment) {
     return (await axios.post("movements/movement", moviment)).data;
   }
+
+  static async deleteMovement(movement_id) {
+    return await axios.delete(`movements/movement/${movement_id}`).data;
+  }
 }
