@@ -1,8 +1,19 @@
+import { useState } from "react";
 import * as C from "./index.table-movements.styled.js";
 import * as I from "../../components-style/div-icons/index.div-icons";
 import { DeleteMovement } from "../delete-movement/index.delete-movement.jsx";
+import { ModalUpdateMovement } from "../modal-update-movement/index.modal-update-movement.jsx";
 
 export const TableMovements = ({ movements }) => {
+  const [show, setShow] = useState(false);
+  const [movement, setMovement] = useState({});
+
+  const handleShow = (data) => {
+    setShow(true);
+    setMovement(data);
+  };
+  const handleClose = () => setShow(false);
+
   return (
     <>
       <C.TableStyled striped responsive>
@@ -44,7 +55,7 @@ export const TableMovements = ({ movements }) => {
                   })}
                 </C.TdStyled>
                 <C.TdStyled>
-                  <button>
+                  <button onClick={() => handleShow({ index, ...movement })}>
                     <i className="bi bi-pencil-fill"></i>
                   </button>
                   <DeleteMovement index={index} movement_id={movement.id} />
@@ -54,6 +65,11 @@ export const TableMovements = ({ movements }) => {
           })}
         </tbody>
       </C.TableStyled>
+      <ModalUpdateMovement
+        handleClose={handleClose}
+        show={show}
+        movement={movement}
+      />
     </>
   );
 };

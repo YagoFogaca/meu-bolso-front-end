@@ -52,4 +52,15 @@ export class HandlingMovementContext {
       amount: this.addMovementContextAmount(data),
     };
   }
+
+  static updateMovimentContext(movements, movement_id, new_movement) {
+    const data = movements.map((movement, i) =>
+      movement.id === movement_id ? { ...movement, ...new_movement } : movement
+    );
+
+    return {
+      movements: data,
+      amount: this.addMovementContextAmount(data),
+    };
+  }
 }

@@ -21,6 +21,11 @@ export class Api {
     return (await axios.post("movements/movement", moviment)).data;
   }
 
+  static async updateMovement(movement_id, movement) {
+    return await axios.patch(`movements/movement/${movement_id}`, movement)
+      .data;
+  }
+
   static async deleteMovement(movement_id) {
     return await axios.delete(`movements/movement/${movement_id}`).data;
   }

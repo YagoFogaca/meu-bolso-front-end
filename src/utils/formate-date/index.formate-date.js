@@ -5,7 +5,12 @@ export class FormateDate {
   }
 
   static formate(date) {
-    const [day, month, year] = date.split("-");
+    const [_, month, year] = date.split("-");
     return `${month}-${year}`;
+  }
+
+  static formateInput(date) {
+    const [day, month, year] = date.split("-");
+    return `${year}-${month}-${day}`;
   }
 }
