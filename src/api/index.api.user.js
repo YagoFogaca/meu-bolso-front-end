@@ -8,6 +8,10 @@ export class Api {
     return (await axios.post("auth/login", user)).data;
   }
 
+  static async createUser(user) {
+    return (await axios.post("users/user/", user)).data;
+  }
+
   static async updateUser(user_id, user) {
     console.log(user);
     return await axios.patch(`users/user/${user_id}`, user);
