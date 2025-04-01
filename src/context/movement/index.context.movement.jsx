@@ -10,8 +10,8 @@ const initialMovements = {
   user_id: "",
 };
 const initialMovementAmount = {
-  entry: "",
-  exit: "",
+  entry: "0,00",
+  exit: "0,00",
 };
 
 export const MovementContext = createContext({
@@ -22,7 +22,7 @@ export const MovementContext = createContext({
 });
 
 export const MovementContextProvider = ({ children }) => {
-  const [movements, setMovements] = useState([initialMovements]);
+  const [movements, setMovements] = useState([]);
   const [movementsAmount, setMovementsAmount] = useState(initialMovementAmount);
 
   return (

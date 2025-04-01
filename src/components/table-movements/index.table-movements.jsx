@@ -14,6 +14,8 @@ export const TableMovements = ({ movements }) => {
   };
   const handleClose = () => setShow(false);
 
+  console.log(movements);
+
   return (
     <>
       <C.TableStyled striped responsive>

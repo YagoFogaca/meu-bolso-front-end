@@ -9,6 +9,7 @@ import { Api } from "../../api/index.api.user.js";
 import { GenerateDate } from "../../utils/generate-date/index.generate-date.js";
 import { MovementContext } from "../../context/movement/index.context.movement.jsx";
 import { HandlingMovementContext } from "../../utils/handling-movement-context/index.handling-movement-context.js";
+import { LoadingSpinner } from "../../components/loading-spinner/index.loading-spinner.jsx";
 
 export const Home = () => {
   const { movements, movementsAmount, setMovements, setMovementsAmount } =
@@ -31,7 +32,7 @@ export const Home = () => {
 
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      setLoading(false);
     }
   };
 
@@ -42,16 +43,16 @@ export const Home = () => {
   return (
     <>
       <NavbarComponents />
-      {loading ? (
-        <h1>Calma ai cara</h1>
-      ) : (
-        <MainStyled>
+      <MainStyled>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
           <SectionStyled>
             <SectionMovementInformation movements={movements} />
             <SectionMovementAmount amount={movementsAmount} />
           </SectionStyled>
-        </MainStyled>
-      )}
+        )}
+      </MainStyled>
     </>
   );
 };
