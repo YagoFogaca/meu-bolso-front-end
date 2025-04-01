@@ -13,7 +13,6 @@ export class Api {
   }
 
   static async updateUser(user_id, user) {
-    console.log(user);
     return await axios.patch(`users/user/${user_id}`, user);
   }
 

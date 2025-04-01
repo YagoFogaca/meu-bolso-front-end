@@ -17,9 +17,7 @@ export const DeleteMovement = ({ movement_id, index }) => {
       setMovementsAmount(
         HandlingMovementContext.removeMovementContext(movements, index).amount
       );
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   return (

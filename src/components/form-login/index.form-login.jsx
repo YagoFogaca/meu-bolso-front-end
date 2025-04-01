@@ -37,7 +37,6 @@ export const FormLogin = () => {
       } catch (error) {
         setValidatedLogin(true);
         setLoading(false);
-        console.log(error);
       }
     }
     setValidated(true);
